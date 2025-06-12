@@ -1,4 +1,4 @@
--- Drop tables if they exist to ensure a clean slate
+
 DROP TABLE IF EXISTS customer_family;
 DROP TABLE IF EXISTS mobile_number;
 DROP TABLE IF EXISTS address;
@@ -6,15 +6,15 @@ DROP TABLE IF EXISTS customer;
 DROP TABLE IF EXISTS city;
 DROP TABLE IF EXISTS country;
 
--- DDL - Data Definition Language
 
--- Master table for Countries
+
+
 CREATE TABLE country (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
--- Master table for Cities
+
 CREATE TABLE city (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE city (
     FOREIGN KEY (country_id) REFERENCES country(id)
 );
 
--- Main Customer table
+
 CREATE TABLE customer (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE customer (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- One-to-Many table for Customer Addresses
+
 CREATE TABLE address (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     address_line1 VARCHAR(255) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE address (
     FOREIGN KEY (customer_id) REFERENCES customer(id) ON DELETE CASCADE
 );
 
--- One-to-Many table for Customer Mobile Numbers
+
 CREATE TABLE mobile_number (
     customer_id BIGINT NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE mobile_number (
 );
 
 
--- Many-to-Many join table for Family Members
+
 CREATE TABLE customer_family (
     customer_id BIGINT NOT NULL,
     family_member_id BIGINT NOT NULL,
