@@ -30,19 +30,6 @@ This is a comprehensive full-stack application for managing customer data, built
 
 
 
----
-
-
-    ```
-
-4.  **Start the Development Server**:
-    ```bash
-    npm start
-    ```
-     default web browser will automatically open to `http://localhost:3000`, where the application is running.
-
----
-
 ## Bulk Upload Excel Format
 
 
