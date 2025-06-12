@@ -1,4 +1,11 @@
 package com.example.customermanagement.mapper;
 
-public class CityMapper {
+import com.example.customermanagement.domain.City;
+import com.example.customermanagement.dto.CityDTO;
+import org.mapstruct.Mapper;
+
+@Mapper(componentModel = "spring")
+public interface CityMapper {
+    CityDTO toDto(City city);
+    City toEntity(CityDTO cityDTO);
 }
